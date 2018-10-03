@@ -10,18 +10,21 @@
   <section>
     <rest></rest>
     <arrow></arrow>
+    <classes></classes>
   </section>
 </main>
 </template>
 <script>
 import Rest from './Rest';
 import Arrow from './Arrow';
+import Classes from './Classes';
 
 export default {
   name: "Home",
   components: {
     Rest,
-    Arrow
+    Arrow,
+    Classes
   }
 }
 </script>

@@ -39,7 +39,7 @@ export default class Dog {
 
   template = () => `
     <article>
-      <img :src="this.avatar" alt="this.name" />
+    <img :src="this.avatar" alt="this.name" />
       <h4>{{this.name}}</h4>, <h6>{{this.breed}} - {{this.country}}</h6>
     </article>
   `;

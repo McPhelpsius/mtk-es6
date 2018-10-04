@@ -1,19 +1,22 @@
 <template>
-  <div v-html="lassie.template()">
+  <section>
+<div v-html="lassie.generateTemplate()">
   </div>
+  {{lassie.speak()}}
+  </section>
 </template>
 
 <script>
-import Dog from '../classes/Dog.js';
+import Dog, {Collie}  from '../classes/Dog.js';
 export default {
   name: "Classes",
   data() {
     return {
-      lassie: new Dog('Lassie', 'Ireland', 3)
+      lassie : Dog
     }
   },
   created() {
-
+    this.lassie = new Dog('female', 'Lassie');
   }
 }
 </script>

@@ -9,7 +9,7 @@
   </nav>
   <section>
     <rest></rest>
-    <arrow></arrow>
+    <!-- <arrow></arrow> -->
     <classes></classes>
   </section>
 </main>

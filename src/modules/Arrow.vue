@@ -57,7 +57,7 @@ export default {
       return this.mapDogProfiles(theImgs, theNames);
     },
     async getThreeImages() {
-      const threeImages = await axios.get("https://dog.ceo/api/breeds/image/random/3")
+      const threeImages = await axios.get("https://dog.ceo/api/breeds/image/random/3");
       return threeImages.data;
     },
     async getThreeNames() {

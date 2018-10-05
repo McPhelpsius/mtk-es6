@@ -1,46 +1,50 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default class Dog {
-  constructor(
-    name = 'Fido',
-    age = 'puppy',
-    country = 'US',
-    breed = 'retriever',
-    bark = 'woof',
-    gender,
-    avatar
-  ) {
+  constructor(gender, name, breed) {
     this.name = name;
-    this.age = age;
-    this.country = country;
+    this.gender = gender;
+    this.avatar =
+      "https://images.dog.ceo/breeds/bulldog-french/n02108915_1137.jpg";
     this.breed = breed;
-    this.bark = bark;
-    this.gender = gender || this.getGender(name);
-    this.avatar = avatar || this.getAvatarUrl(breed);
+    this.setAvatar(breed);
   }
 
-  getAvatarUrl() {
-    axios
-      .get('https://dog.ceo/api/breeds/image/random')
-      .then(resp => resp)
-      .then(res => (this.avatar = res.data.message));
+  async setAvatar(breed) {
+    const breedExists = !!breed && breed.length > 0;
+    let avatarString = "";
+
+    if (breedExists) {
+      avatarString = `https://dog.ceo/api/breed/${breed}/images/random`;
+    } else {
+      avatarString = "https://dog.ceo/api/breeds/image/random";
+    }
+
+    const avatarUrl = await axios.get(avatarString);
+    const avatar = await avatarUrl.data.message;
+
+    this.avatar = avatar;
+    console.log("requested: ", this.avatar);
   }
 
-  async getGender(name) {
-    const gender = await axios
-      .get(`https://api.genderize.io/?name=${name}`)
-      .then(resp => resp)
-      .then(res => (this.gender = res.data.gender));
+  speak = () => "bark";
 
-    return gender.data.gender;
+  generateTemplate() {
+    console.log(this.name);
+    console.log(this.breed);
+    console.log(this.avatar);
+    return `<article class="dog-profile">
+      <img src="${this.avatar}" />
+      <span>${this.name}, ${this.breed}</span>
+    </article>`;
+  }
+}
+
+export class Collie extends Dog {
+  constructor(gender, name = "Lassie") {
+    super(gender, name, "collie");
+    this.avatar = "https://images.dog.ceo/breeds/collie/n02106030_14653.jpg";
   }
 
-  speak = () => this.bark;
-
-  template = () => `
-    <article>
-    <img :src="this.avatar" alt="this.name" />
-      <h4>{{this.name}}</h4>, <h6>{{this.breed}} - {{this.country}}</h6>
-    </article>
-  `;
+  speak = () => "ruff!";
 }

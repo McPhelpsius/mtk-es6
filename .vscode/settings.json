@@ -1,0 +1,6 @@
+{
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "prettier.eslintIntegration": true,
+  "prettier.disableLanguages": []
+}

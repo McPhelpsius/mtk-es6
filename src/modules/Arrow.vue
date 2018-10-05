@@ -1,12 +1,14 @@
 <template>
 <section>
-  <img class="dog-pic" :src="avatar" title="dog"/>
-  <h1>{{name}} - {{gender}}</h1>
+  <article class="dog-profile">
+    <img class="dog-pic" :src="avatar" title="dog"/>
+    <span>{{name}} - {{gender}}</span>
+  </article>
 
-<!-- <article class="dog-profile" v-for="d in dogs">
+<article class="dog-profile" v-for="d in dogs">
   <img class="dog-pic" :src="d.avatar" title="dog"/>
-  <h1>{{d.name}} - {{d.gender}}</h1>
-</article> -->
+  <span>{{d.name}} - {{d.gender}}</span>
+</article>
 </section>
 </template>
 
@@ -91,16 +93,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.dog-profile {
-  border-radius: 10px;
-
-  h4 {
-    font-size: 15px;
-  }
-}
-
-img {
-  max-width: 100px;
+<style scoped lang="scss">
+section {
+  flex-direction: column;
+  align-items: flex-start;
 }
 </style>
+

@@ -1,19 +1,13 @@
 <template>
   <main>
-  <nav>
-    <ul class="h-menu">
-      <li>Add Rest</li>
-      <li>Next Func</li>
-      <li>Next Func</li>
-    </ul>
-  </nav>
-  <section>
-    <rest></rest>
-    <arrow></arrow>
-    <classes></classes>
-  </section>
+    <section>
+      <!-- <rest></rest> -->
+      <!-- <arrow></arrow> -->
+      <classes></classes>
+    </section>
 </main>
 </template>
+
 <script>
 import Rest from './Rest';
 import Arrow from './Arrow';
@@ -28,7 +22,26 @@ export default {
   }
 }
 </script>
-<style lang="sass">
 
+<style lang="scss">
+section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.dog-profile {
+  border-top: 1px solid #4578a9;
+  padding: 10px;
+
+  h4 {
+    font-size: 15px;
+  }
+}
+
+img {
+  max-width: 200px;
+  border-radius: 10px;
+}
 </style>
+
 

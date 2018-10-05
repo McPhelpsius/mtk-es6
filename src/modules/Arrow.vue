@@ -79,18 +79,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.dog-profile {
-  border-radius: 10px;
-
-  h4 {
-    font-size: 15px;
-  }
-}
-
-img {
-  max-width: 100px
-}
-
-</style>
